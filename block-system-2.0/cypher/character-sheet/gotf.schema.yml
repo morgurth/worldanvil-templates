@@ -6,10 +6,10 @@ fields:
     input: select
     options:
       Appealing: Appealing
-			Benificent: Benificent
+      Benificent: Benificent
       Brash: Brash
       Calm: Calm
-			Chaotic: Chaotic
+      Chaotic: Chaotic
       Charming: Charming
       Clever: Clever
       Clumsy: Clumsy
@@ -23,19 +23,19 @@ fields:
       Exiled: Exiled
       Fast: Fast
       Foolish: Foolish
-			Gluttonous: Gluttonous
+      Gluttonous: Gluttonous
       Graceful: Graceful
       Guarded: Guarded
       Hardy: Hardy
       Hideous: Hideous
       Honorable: Honorable
-			Humble: Humble
+      Humble: Humble
       Impulsive: Impulsive
       Inquisitive: Inquisitive
       Intelligent: Intelligent
       Jovial: Jovial
       Kind: Kind
-			Lawful: Lawful
+      Lawful: Lawful
       Learned: Learned
       Lucky: Lucky
       Mad: Mad
@@ -45,17 +45,17 @@ fields:
       Naive: Naive
       Perceptive: Perceptive
       Resilient: Resilient
-			Risk Taking: Risk Taking
+      Risk Taking: Risk Taking
       Rugged: Rugged
       Sharp Eyed: Sharp Eyed
       Skeptical: Skeptical
-			Sleen: Sleen
+      Sleen: Sleen
       Stealthy: Stealthy
       Strong: Strong
       Strong Willed: Strong Willed
       Swift: Swift
       Taran: Taran
-			Tongue Tied: Tongue Tied
+      Tongue Tied: Tongue Tied
       Tough: Tough
       Vicious: Vicious
       Virtuous: Virtuous
@@ -91,7 +91,7 @@ fields:
       Fights Dirty: Fights Dirty
       Fights With Panache: Fights With Panache
       Finds the Flaw in All Things: Finds the Flaw in All Things
-			Focuses Mind Over Matter: Focuses Mind Over Matter
+      Focuses Mind Over Matter: Focuses Mind Over Matter
       Fuses Flesh and Steel: Fuses Flesh and Steel
       Grows to Towering Heights: Grows to Towering Heights
       Howls at the Moon: Howls at the Moon
@@ -114,20 +114,20 @@ fields:
       Performs Feats of Strength: Performs Feats of Strength
       Rages: Rages
       Revels in Trickery: Revels in Trickery
-			Rides the Lightning: Rides the Lightning
+      Rides the Lightning: Rides the Lightning
       Sees Beyond: Sees Beyond
       Separates Mind from Body: Separates Mind from Body
       Shepherds Spirits: Shepherds Spirits
       Siphons Power: Siphons Power
       Slays Monsters: Slays Monsters
       Solves Mysteries: Solves Mysteries
-			Speaks Curses: Speaks Curses
+      Speaks Curses: Speaks Curses
       Speaks for the Land: Speaks for the Land
       Stands Like a Bastion: Stands Like a Bastion
       Throws with Deadly Accuracy: Throws with Deadly Accuracy
       Travels Through Time: Travels Through Time
       Walks With the Night: Walks With the Night
-			Wears a Sheen of Ice: Wears a Sheen of Ice
+      Wears a Sheen of Ice: Wears a Sheen of Ice
       Wields Two Weapons At Once: Wields Two Weapons At Once
       Works Miracles: Works Miracles
       Works the Back Alleys: Works the Back Alleys
@@ -155,10 +155,10 @@ fields:
     label: "Custom Type"
     description: "Your character's custom type"
     input: string
-  TYPEFLAVOUROTHER:
-    label: "Flavour, Group of Special Abilities"
+  DOMINION:
+    label: "God of Dominion"
     input: string
-    placeholder: "Stealth, Technology, Magic, Combat, Skills and Knowledge"
+    placeholder: "Stealth, Magic, Combat, Skills and Knowledge"
   TIER:
     required: true
     label: "Tier"
@@ -1058,11 +1058,11 @@ fields:
     label: "Stars"
     description: "Stars you possess"
     input: integer
-	moons: 
+  moons: 
     label: "Moons"
     description: "Moons you possess"
     input: integer
-	pennies: 
+  pennies: 
     label: "Pennies"
     description: "Pennies you possess"
     input: integer

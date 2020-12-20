@@ -79,8 +79,8 @@
                 {% set tf = variables.focus %}
             {% endif %}
             {{variables.name}} is a<br><span title="descriptor">{{td}}</span> <span title="type">{{tt}}</span><br>who <span title="focus">{{tf}}</span>.<br><br>
-            {% if variables.flavour_group_of_special_abilities is defined %}
-            <span title="Dominion">{{ variables.flavour_group_of_special_abilities}}</span>
+            {% if variables.god_of_dominion is defined %}
+            <span title="Dominion">{{variables.god_of_dominion}}</span>
             {% endif %}
         </div>
         <div class="col-12 col-md-4 col-lg-4"> <!-- right: tier, effort, xp -->
