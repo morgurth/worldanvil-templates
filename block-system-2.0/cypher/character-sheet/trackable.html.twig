@@ -91,8 +91,8 @@
             </div>
         </div>
         <div class="card border d-flex"> <!-- recovery -->
-            <div class="card-header bg-simple text-center" title="You have four recovery rolls per day. Roll 1d6 + your Tier + bonus">
-            <span class="header">Recovery</span>{% set xx = 1 %}{% if variables.tier is defined %}{% set xx = variables.tier %}{% endif %}<br>[roll:1d6+{{ xx }}] + bonus</div>
+            <div class="card-header bg-simple text-center" title="You have four recovery rolls per day. Roll 1d6 + your Tier">
+            <span class="header">Recovery</span>{% set xx = 1 %}{% if variables.tier is defined %}{% set xx = variables.tier %}{% endif %}<br>[roll:1d6+{{ xx }}]</div>
             <div class="card-body">
                 <span class="myinputfield"><label for="one_action" class="control-label">
                     <input value="0" name="one_action" type="hidden" />
