@@ -1,13 +1,13 @@
 {
     padding: 0px!important;
-    font-family: Teko Regular;
+    font-family: Papyrus Regular;
     font-weight: 400
 }
 
 .cypher-sheet, a, body, .descriptor, .type, .focus, small, strong, h1, h2, h3, h4, h5, .btn {
     background-color: #E0DCCA;
     color: #222;
-    font-family: Teko Regular!important;
+    font-family: Papyrus Regular!important;
     font-weight: 400;
     font-size: 20px
 }
