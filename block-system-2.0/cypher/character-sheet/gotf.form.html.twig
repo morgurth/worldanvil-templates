@@ -91,6 +91,48 @@
     </span>
 </div>
 {% endmacro generateSAbilityEntry %}
+{% macro generateDAbilityEntry(myid, myname, mytype, mycost, mypool, mydesc) %}
+<div class="row d-flex justify-content-between align-items-center ability">
+    {% if myname is not defined  %}
+        {% set myname="" %}
+        {% set mytype="other" %}
+        {% set mycost=0 %}
+        {% set mypool="none" %}
+        {% set mydesc="" %}
+    {% endif %}
+    <label for="domain_ability_name_{{myid}}" class="control-label">Name {{myid}}</label>
+    <span class="myinputfield">
+        <input value="{{ myname is defined ? myname }}" class="form-control" id="domain_ability_name_{{myid}}" name="domain_ability_name_{{myid}}" type="text" />
+    </span>
+    <label for="domain_ability_type_{{myid}}" class="control-label">Type</label>
+    <span class="myinputfield">
+        <select class="form-control" id="domain_ability_type_{{myid}}" name="domain_ability_type_{{myid}}" title="Ability type">
+            <option value="other" {% if mytype is defined and mytype == "other" %}selected="selected" {% endif %} >Other</option>
+            <option value="action" {% if mytype is defined and mytype == "action" %}selected="selected" {% endif %} >Action</option>
+            <option value="enabler" {% if mytype is defined and mytype == "enabler" %}selected="selected" {% endif %} >Enabler</option>
+        </select>
+    </span>
+    <label for="domain_ability_cost_{{myid}}" class="control-label">Cost</label>
+    <span class="myinputfield">
+        <input value="{% if mycost is defined and mycost > 0 %}{{mycost}}{% else %}0{% endif %}" class="form-control" id="domain_ability_cost_{{myid}}" name="domain_ability_cost_{{myid}}" type="number" min="0" max="100" />
+    </span>
+    <label for="domain_ability_pool_{{myid}}" class="control-label">Stat</label>
+    <span class="myinputfield">
+        <select class="form-control" id="domain_ability_pool_{{myid}}" name="domain_ability_pool_{{myid}}" title="Pool used">
+            <option value="none" {% if mypool is defined and mypool == "none" %}selected="selected" {% endif %} >None</option>
+            <option value="might" {% if mypool is defined and mypool == "might" %}selected="selected" {% endif %} >Might</option>
+            <option value="speed" {% if mypool is defined and mypool == "speed" %}selected="selected" {% endif %} >Speed</option>
+            <option value="intellect" {% if mypool is defined and mypool == "intellect" %}selected="selected" {% endif %} >Intellect</option>
+        </select>
+    </span>
+</div>
+<div class="row cypher botrow">
+    <label for="domain_ability_desc_{{myid}}" class="control-label">Description</label>
+    <span class="myinputfield">
+        <input value="{{ mydesc is defined ? mydesc }}" class="form-control" id="domain_ability_desc_{{myid}}" name="domain_ability_desc_{{myid}}" size="40" type="text" />
+    </span>
+</div>
+{% endmacro generateDAbilityEntry %}
 <div class="container-fluid cypher-sheet cypher-sheet-global-wrapper">
     <div class="form-wrapper">
         <div class="row">
@@ -601,6 +643,33 @@
                             {{ _self.generateSAbilityEntry("18", variables.special_ability_name_18, variables.special_ability_type_18, variables.special_ability_cost_18, variables.special_ability_pool_18, variables.special_ability_desc_18) }}
                             {{ _self.generateSAbilityEntry("19", variables.special_ability_name_19, variables.special_ability_type_19, variables.special_ability_cost_19, variables.special_ability_pool_19, variables.special_ability_desc_19) }}
                             {{ _self.generateSAbilityEntry("20", variables.special_ability_name_20, variables.special_ability_type_20, variables.special_ability_cost_20, variables.special_ability_pool_20, variables.special_ability_desc_20) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="card my-2 border" id="domain-abilites-card"> <!-- domain abilities -->
+                    <div class="card-header bg-simple header text-center"><label for="domain_abilities" class="control-label">Domain Abilites</label></div>
+                        <div class="card-body m-3">
+                            {{ _self.generateDAbilityEntry("01", variables.domain_ability_name_01, variables.domain_ability_type_01, variables.domain_ability_cost_01, variables.domain_ability_pool_01, variables.domain_ability_desc_01) }}
+                            {{ _self.generateDAbilityEntry("02", variables.domain_ability_name_02, variables.domain_ability_type_02, variables.domain_ability_cost_02, variables.domain_ability_pool_02, variables.domain_ability_desc_02) }}
+                            {{ _self.generateDAbilityEntry("03", variables.domain_ability_name_03, variables.domain_ability_type_03, variables.domain_ability_cost_03, variables.domain_ability_pool_03, variables.domain_ability_desc_03) }}
+                            {{ _self.generateDAbilityEntry("04", variables.domain_ability_name_04, variables.domain_ability_type_04, variables.domain_ability_cost_04, variables.domain_ability_pool_04, variables.domain_ability_desc_04) }}
+                            {{ _self.generateDAbilityEntry("05", variables.domain_ability_name_05, variables.domain_ability_type_05, variables.domain_ability_cost_05, variables.domain_ability_pool_05, variables.domain_ability_desc_05) }}
+                            {{ _self.generateDAbilityEntry("06", variables.domain_ability_name_06, variables.domain_ability_type_06, variables.domain_ability_cost_06, variables.domain_ability_pool_06, variables.domain_ability_desc_06) }}
+                        </div>
+                    </div>
+                </div>
+            <div class="col-12 col-md-6">
+                <div class="card my-2 border">
+                    <div class="card-header bg-simple header text-center"><label for="divine_shifts" class="control-label">Divine Shifts</label></div>
+                    <div class="card-body m-3">
+                        <div class="row d-flex justify-content-between align-items-center">
+                            <span class="myinputfield">
+                                <textarea class="form-control" id="divine_shifts" name="divine_shifts" cols="40" rows="20">{{ variables.divine_shifts is defined ? variables.divine_shifts }}</textarea>
+                            </span>
                         </div>
                     </div>
                 </div>

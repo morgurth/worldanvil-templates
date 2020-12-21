@@ -59,6 +59,23 @@
     <td title="Stat pool: {{tx}}"><i class="far {{tt}}"></i></td>
     {% if mydesc is defined and mydesc != '' %}</tr><tr><td colspan="4" title="Ability description">{{mydesc}}</td>{% endif %}
 </tr>{% endif %}{% endmacro generateSAbilityEntry %}
+{% macro generateDAbilityEntry(myid, myname, mytype, mycost, mypool, mydesc) %}
+{% if myname is defined and myname != '' %}<tr><th scope="row" title="Name of the Ability">
+    {% set ta = '' %}
+    {% if mytype == 'other' %}{% set ta = 'Other' %}{% endif %}
+    {% if mytype == 'action' %}{% set ta = 'Action' %}{% endif %}
+    {% if mytype == 'enabler' %}{% set ta = 'Enabler' %}{% endif %}
+    {{ myname is defined ? myname }}</th>
+    <td title="Type: {{ta}}">{{ta}}</td><td title="Cost: {{mycost}}">{{mycost}}
+    {% set tt = '' %}{% set tx = '' %}
+    {% if mypool == 'none' %}{% set tt = 'fa-times-circle' %}{% set tx = 'None' %}{% endif %}
+    {% if mypool == 'might' %}{% set tt = 'fa-hand-rock' %}{% set tx = 'Might' %}{% endif %}
+    {% if mypool == 'speed' %}{% set tt = 'fa-paper-plane' %}{% set tx = 'Speed' %}{% endif %}
+    {% if mypool == 'intellect' %}{% set tt = 'fa-lightbulb' %}{% set tx = 'Intellect' %}{% endif %}
+    </td>
+    <td title="Stat pool: {{tx}}"><i class="far {{tt}}"></i></td>
+    {% if mydesc is defined and mydesc != '' %}</tr><tr><td colspan="4" title="Ability description">{{mydesc}}</td>{% endif %}
+</tr>{% endif %}{% endmacro generateDAbilityEntry %}
 <div class="container-fluid cypher-sheet">
     <div class="row"> <!-- row 1: descriptor | tier | logo -->
         <div class="col-md-4 col-lg-4 d-none d-lg-block px-4 logo text-right" title="Cypher System Logo"> <!-- left: cypher logo --></div>
@@ -500,7 +517,36 @@
             </div>
         </div> <!-- close cyphers -->
     </div> <!-- close row 4 -->
-    <div class="row"> <!-- row 5:  attacks | equipment | artifacts -->
+<div class="row"> <!-- row 5: domain abilites and divine shifts -->
+        <div class="col-12 col-md-6">
+            <div class="card my-2"> <!-- domain abilities -->
+                <div class="card-header bg-simple header text-center">Domain Abilites</div>
+                <div class="card-body bg-dark">
+                    <table class="table-striped" width="100%"><thead><tr><th scope="col">Ability</th><th scope="col">Type</th><th scope="col">Cost</th><th scope="col">Pool</th></tr></thead>
+                        <tbody>
+                        {{ _self.generateDAbilityEntry("01", variables.domain_ability_name_01, variables.domain_ability_type_01, variables.domain_ability_cost_01, variables.domain_ability_pool_01, variables.domain_ability_desc_01) }}
+                        {{ _self.generateDAbilityEntry("02", variables.domain_ability_name_02, variables.domain_ability_type_02, variables.domain_ability_cost_02, variables.domain_ability_pool_02, variables.domain_ability_desc_02) }}
+                        {{ _self.generateDAbilityEntry("03", variables.domain_ability_name_03, variables.domain_ability_type_03, variables.domain_ability_cost_03, variables.domain_ability_pool_03, variables.domain_ability_desc_03) }}
+                        {{ _self.generateDAbilityEntry("04", variables.domain_ability_name_04, variables.domain_ability_type_04, variables.domain_ability_cost_04, variables.domain_ability_pool_04, variables.domain_ability_desc_04) }}
+                        {{ _self.generateDAbilityEntry("05", variables.domain_ability_name_05, variables.domain_ability_type_05, variables.domain_ability_cost_05, variables.domain_ability_pool_05, variables.domain_ability_desc_05) }}
+                        {{ _self.generateDAbilityEntry("06", variables.domain_ability_name_06, variables.domain_ability_type_06, variables.domain_ability_cost_06, variables.domain_ability_pool_06, variables.domain_ability_desc_06) }}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div> <!-- close domain abilites -->
+        <div class="col-12 col-md-4">
+            <div class="card my-2 bg-dark"> <!-- divine_shifts -->
+                <div class="card-header bg-simple header text-center">Divine Shifts {% if variables.tier > 1 %} {% set tt = variables.tier + 1 %}(max: {{tt}} {% endif %})</div>
+                <div class="card-body m-2">
+                    {% if variables.divine_shifts is defined %}
+                    {{ variables.divine_shifts|nl2br }}
+                    {% endif %}
+                </div>
+            </div>
+        </div> <!-- close divine_shifts -->
+    </div> <!-- close row 5 -->
+    <div class="row"> <!-- row 6:  attacks | equipment | artifacts -->
         <div class="col-12 col-md-4">
             <div class="card my-2 bg-dark"> <!-- attacks -->
                 <div class="card-header bg-simple header text-center">Attacks</div>
@@ -537,7 +583,7 @@
                 </div>
             </div>
         </div> <!-- close artifacts -->
-    </div> <!-- close row 5 -->
+    </div> <!-- close row 6 -->
     <div class="row">
         <div class="col-12 text-center copyright">
                 ™ &amp; © Monte Cook Games<br><a href="/w/sheet-creation/a/sheet-list">Gods of the Fall v1.0, works with Cypher 1.0 and 2.0, Numenera and The Strange</a>, modifed by morgurth#8782, original by #Tillerz#3807 - Updated: 2020-12-18
